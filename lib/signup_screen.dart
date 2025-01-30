@@ -21,6 +21,7 @@ class SignupScreen extends StatelessWidget{
       body: SingleChildScrollView(
         child: Padding(padding: EdgeInsets.all(16),
         child: Column(
+          spacing: 20,
           children: [
             Text("Register here",style: TextStyle(
               fontSize: 20,

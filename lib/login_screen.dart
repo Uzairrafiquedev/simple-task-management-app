@@ -21,6 +21,7 @@ class LoginScreen extends StatelessWidget{
       body: SingleChildScrollView(
         child: Padding(padding: EdgeInsets.all(16),
           child: Column(
+            spacing: 20,
             children: [
               Text("Log In here",style: TextStyle(
                 fontSize: 20,

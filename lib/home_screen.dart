@@ -38,7 +38,7 @@ class _HomeScreenState extends State<HomeScreen>{
         ],
       ),
       body: SingleChildScrollView(
-        child: Column(
+        child: Row(
           children: [
             InkWell(
               borderRadius: BorderRadius.circular(10),
@@ -48,6 +48,7 @@ class _HomeScreenState extends State<HomeScreen>{
                 });
               },
               child: Container(
+                margin: EdgeInsets.all(10),
                 height: 50,
                 width: MediaQuery.of(context).size.width/2.2,
                 decoration: BoxDecoration(
@@ -58,7 +59,7 @@ class _HomeScreenState extends State<HomeScreen>{
                   child: Text("Pending",style: TextStyle(
                     fontSize: _buttonIndex == 0 ? 16:14,
                     fontWeight: FontWeight.bold,
-                    color: _buttonIndex == 0 ? Colors.red:Colors.redAccent,
+                    color: _buttonIndex == 0 ? Colors.white:Colors.black,
                   ),),
                 ),
               ),
@@ -71,17 +72,18 @@ class _HomeScreenState extends State<HomeScreen>{
                 });
               },
               child: Container(
+                margin: EdgeInsets.all(10),
                 height: 50,
                 width: MediaQuery.of(context).size.width/2.2,
                 decoration: BoxDecoration(
-                  color: _buttonIndex == 0? Colors.blueGrey:Colors.blue,
+                  color: _buttonIndex == 1? Colors.blueGrey:Colors.blue,
                   borderRadius: BorderRadius.circular(10),
                 ),
                 child: Center(
                   child: Text("Completed",style: TextStyle(
                     fontSize: _buttonIndex == 1 ? 16:14,
                     fontWeight: FontWeight.bold,
-                    color: _buttonIndex == 1 ? Colors.red:Colors.redAccent,
+                    color: _buttonIndex == 1 ? Colors.white:Colors.black,
                   ),),
                 ),
               ),
@@ -98,17 +100,18 @@ class _HomeScreenState extends State<HomeScreen>{
       ),
     );
   }
-  void _showTaskDialog(BuildContext conext,{Todo? todo}){
+  void _showTaskDialog(BuildContext context,{Todo? todo}){
     final TextEditingController _titleController = TextEditingController(text: todo?.title);
     final TextEditingController _descriptionController = TextEditingController(text: todo?.description);
     final DatabaseService _databaseService = DatabaseService();
     
-    showDialog(context: context, builder: (conext){
+    showDialog(context: context, builder: (context){
       return AlertDialog(
         title: Text(todo == null ?"Add Task":"Edit Task"),
         content: SingleChildScrollView(
           child: Container(
             child: Column(
+              spacing: 20,
               children: [
                 TextField(
                   controller: _titleController,
